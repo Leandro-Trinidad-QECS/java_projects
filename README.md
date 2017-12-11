@@ -8,4 +8,5 @@ ___
 ##### **TODO**
 * Add encryption
 * Add more try catch statements
-* Bug test
+* Allow user to remove account from the database
+* Allow users to change passwords or usernames
