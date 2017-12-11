@@ -46,6 +46,7 @@ public class password {
 
 
 public static boolean writeToFile(String username, String password) throws Exception {
+	//checks if the username and password is already in the database
 		if (!checkUserPass(username,password)) {
 			BufferedWriter out = new BufferedWriter(new FileWriter("pass.txt",true));
 			out.write(username + ":" + password);
@@ -54,7 +55,6 @@ public static boolean writeToFile(String username, String password) throws Excep
 			return true;
 		}
 		return false;
-
 }
 public static boolean checkUserPass(String user, String pass) throws Exception {
 	BufferedReader br = null;
