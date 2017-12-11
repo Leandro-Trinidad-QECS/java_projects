@@ -1,3 +1,17 @@
+/**
+* The password program allows a user to store username and passwords
+* In a file and checks if the password is stored.
+* Test project for school
+*
+* //DANGER//
+* Do not actually store your passwords in this program
+* It is not a secure way of storing passwords use onepass or dashlane
+*
+* @author  Leandro Trinidad
+* @version 1.0
+* @since   2017-12-10
+*/
+
 import java.io.*;
 public class password {
 	public static void main(String[] args)
@@ -28,7 +42,7 @@ public class password {
 		} else if (args[0].equals("-c") || args[0].equals("-check")) {
 			//checks the password if in the database
 			if(checkUserPass(args[1],args[2])) {
-				System.out.println("Aacount is in the database");
+				System.out.println("Account is in the database");
 			} else {
 				System.out.println("Account not in the database");
 			}
@@ -44,7 +58,9 @@ public class password {
 
 	}
 
-
+//writes the username and password in a text file called pass.txt
+//TODO: encrypt the text before appending to file
+// for security reasons
 public static boolean writeToFile(String username, String password) throws Exception {
 	//checks if the username and password is already in the database
 		if (!checkUserPass(username,password)) {
@@ -56,6 +72,8 @@ public static boolean writeToFile(String username, String password) throws Excep
 		}
 		return false;
 }
+
+//checks the username and password if they are in the database or not
 public static boolean checkUserPass(String user, String pass) throws Exception {
 	BufferedReader br = null;
 	br = new BufferedReader(new FileReader("pass.txt"));
