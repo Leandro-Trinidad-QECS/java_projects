@@ -1,21 +1,31 @@
-
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
+import java.text.DecimalFormat;
+
 public class numbersTryCatch {
   public static void main(String[] args) throws Exception {
-    Scanner input = new Scanner(System.in);
-	double userMoney = 0;
-	while(true) {
-		System.out.println("Money:");
-		try {
-			userMoney = Double.parseDouble(input.next());
-			break;
-		} catch(Exception ignore) {
-			System.out.println("Please type in money amount");
-		}
-	}
-	
 
+  System.out.println(checkMoney(args[0]));
 
+  System.out.println(formatMoney(args[0]));
 
+  }
+
+  public static boolean checkMoney(Object money) throws Exception {
+    // checks if the money is an interger or not
+    try {
+      Double.parseDouble(String.valueOf(money));
+      return true;
+    } catch (Exception e) {
+      System.out.println(e);
+    }
+    return false;
+  }
+  public static Double formatMoney( Object money) {
+    DecimalFormat df = new DecimalFormat("#.00");
+
+    return df.format(obj.toString(money).Double.valueOf(money));
   }
 }
