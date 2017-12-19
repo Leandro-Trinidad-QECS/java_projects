@@ -5,27 +5,43 @@ import java.util.Map;
 import java.text.DecimalFormat;
 
 public class numbersTryCatch {
+
   public static void main(String[] args) throws Exception {
+    Scanner input = new Scanner(System.in);
+    System.out.print("Money Amount:");
+    while (!catchArgs(input.next())) {
+      System.out.println("Error");
+      System.out.print("Money Amount:");
+    }
 
-  System.out.println(checkMoney(args[0]));
 
-  System.out.println(formatMoney(args[0]));
 
   }
 
-  public static boolean checkMoney(Object money) throws Exception {
+  public static String[] catchArgs(Object money) throws Exception {
+
     // checks if the money is an interger or not
     try {
       Double.parseDouble(String.valueOf(money));
       return true;
     } catch (Exception e) {
-      System.out.println(e);
+      return false;
     }
-    return false;
   }
-  public static Double formatMoney( Object money) {
+  public static Double formatMoney(Object money) {
+    //formats the money to two decimal places
+
+    //turns object to string
+    String money_string = money.toString();
+    //turns string to double
+    double money_double = Double.parseDouble(money_string);
+
+    //decimal format
     DecimalFormat df = new DecimalFormat("#.00");
 
-    return df.format(obj.toString(money).Double.valueOf(money));
+    //formats the double & returns it
+    String return_string = df.format(money_double);
+    double return_double = Double.parseDouble(return_string);
+    return return_double;
   }
 }
