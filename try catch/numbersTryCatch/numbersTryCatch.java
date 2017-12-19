@@ -79,4 +79,10 @@ public static boolean isInt(Object num) throws Exception {
         }
 
 }
+
+public static void printmarket() throws Exception {
+        for (int i = 0; i < market.size; i++) {
+                System.out.println(i);
+        }
+}
 }
