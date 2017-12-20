@@ -9,6 +9,10 @@ public class numbersTryCatch {
 public static Map<String, Double> market = new HashMap<String, Double>();
 
 public static void main(String[] args) throws Exception {
+
+        market.put("Test",1.00);
+        market.put("asd",1.00);
+        market.put("sgh",1.00);
         //vars
         String money_amount;
         Scanner input = new Scanner(System.in);
@@ -29,6 +33,8 @@ public static void main(String[] args) throws Exception {
                         i++;
                 }
         }
+
+        printmarket();
 
 
 
@@ -81,8 +87,9 @@ public static boolean isInt(Object num) throws Exception {
 }
 
 public static void printmarket() throws Exception {
-        for (int i = 0; i < market.size; i++) {
-                System.out.println(i);
+
+        for (int i = 0; i < market.size(); i++) {
+                System.out.println(market.);
         }
 }
 }
