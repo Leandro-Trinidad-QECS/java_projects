@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
 public class numbersTryCatch {
 
 public static Map<String, Double> market = new HashMap<String, Double>();
-
+public static Scanner input = new Scanner(System.in);
 public static void main(String[] args) throws Exception {
 
         market.put("Test",1.00);
@@ -15,7 +15,6 @@ public static void main(String[] args) throws Exception {
         market.put("sgh",1.00);
         //vars
         String money_amount;
-        Scanner input = new Scanner(System.in);
 
         //try catch statement
         int i = 0;
@@ -35,9 +34,36 @@ public static void main(String[] args) throws Exception {
         }
 
         printmarket();
+        int hello = getOptions("Market");
+        System.out.println(hello);
 
 
 
+
+
+}
+
+public static int getOptions(String optionName) throws Exception {
+        //gets the user input of options
+
+        int option_int = 0;
+        while(true) {
+                String options = "";
+                System.out.print(optionName + ": ");
+                try {
+                        options = input.next();
+                        try {
+                                option_int = Integer.parseInt(options);
+                                break;
+                        } catch (Exception e) {
+                                System.out.println("Thats not right");
+                        }
+                } catch (Exception e) {
+                        System.out.println(String.format("[!] %s", e));
+                }
+
+        }
+        return option_int;
 
 }
 
@@ -87,9 +113,10 @@ public static boolean isInt(Object num) throws Exception {
 }
 
 public static void printmarket() throws Exception {
-
+        System.out.println("Market");
         for (int i = 0; i < market.size(); i++) {
-                System.out.println(market.);
+
+                System.out.println(String.format("[%d] %s", i, i) );
         }
 }
 }
