@@ -2,11 +2,18 @@ import java.util.Scanner;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
+
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.Set;
+
+
 import java.text.DecimalFormat;
 
 public class numbersTryCatch {
 
-public static Map<String, Double> market = new HashMap<String, Double>();
+public static HashMap<String, Double> market = new HashMap<String, Double>();
+// public static Map<String, Double> market = new HashMap<String, Double>();
 public static Scanner input = new Scanner(System.in);
 public static void main(String[] args) throws Exception {
 
@@ -33,7 +40,7 @@ public static void main(String[] args) throws Exception {
                 }
         }
 
-        printmarket();
+        print_opt(market);
         int hello = getOptions("Market");
         System.out.println(hello);
 
@@ -112,13 +119,20 @@ public static boolean isInt(Object num) throws Exception {
 
 }
 
-public static void printmarket() throws Exception {
+public static void print_opt(Map mp) throws Exception {
+        Iterator<String> keySetIterator = mp.iterator();
+        while (keySetIterator.hasNext()) {
+                System.out.println("------------------------------------------------");
+                System.out.println("Iterating Map in Java using KeySet Iterator");
+                String key = keySetIterator.next();
+                System.out.println("key: " + key + " value: " + mp.get(key));
+        }
+
         System.out.println("Market");
         for (int i = 0; i < market.size(); i++) {
 
-                System.out.println(String.format("[%d] %s", i, i) );
+                System.out.println(String.format("[%d] %s", i, i));
         }
 }
-
 
 }
