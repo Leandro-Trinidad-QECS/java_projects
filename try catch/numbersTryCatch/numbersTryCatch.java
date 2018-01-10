@@ -12,12 +12,13 @@ import java.text.DecimalFormat;
 
 public class numbersTryCatch {
 
-public static HashMap<String, Double> market = new HashMap<String, Double>();
+private static Map<String, Double> market = new HashMap<String, Double>();
 // public static Map<String, Double> market = new HashMap<String, Double>();
 public static Scanner input = new Scanner(System.in);
+
 public static void main(String[] args) throws Exception {
 
-        market.put("Test",1.00);
+        market.put("Test",1.00); // (name of item in the market)(How much the item costs)
         market.put("asd",1.00);
         market.put("sgh",1.00);
         //vars
@@ -63,6 +64,10 @@ public static int getOptions(String optionName) throws Exception {
                                 option_int = Integer.parseInt(options);
                                 break;
                         } catch (Exception e) {
+                                if (options.equals("exit")) {
+                                        System.out.println("bye");
+                                        System.exit(0);
+                                }
                                 System.out.println("Thats not right");
                         }
                 } catch (Exception e) {
@@ -80,6 +85,10 @@ public static Boolean catchArgs(Object money) throws Exception {
                 Double.parseDouble(String.valueOf(money));
                 return true;
         } catch (Exception e) {
+                if(String.valueOf(money).equals("exit")) {
+                        System.out.println("bye");
+                        System.exit(0);
+                }
                 return false;
         }
 }
@@ -119,20 +128,19 @@ public static boolean isInt(Object num) throws Exception {
 
 }
 
-public static void print_opt(Map mp) throws Exception {
-        Iterator<String> keySetIterator = mp.iterator();
-        while (keySetIterator.hasNext()) {
-                System.out.println("------------------------------------------------");
-                System.out.println("Iterating Map in Java using KeySet Iterator");
-                String key = keySetIterator.next();
-                System.out.println("key: " + key + " value: " + mp.get(key));
-        }
+public static void print_opt(Map<String, Double> mp) throws Exception {
+        int numbering;
+        System.out.println("\nMarket:");
+        System.out.print("------\n");
 
-        System.out.println("Market");
-        for (int i = 0; i < market.size(); i++) {
-
-                System.out.println(String.format("[%d] %s", i, i));
+        numbering = 0;
+        for (String key : mp.keySet()) {
+                // use the key here
+                System.out.println(String.format("[%d] %s", numbering, key));
+                numbering++;
         }
+        System.out.println("type 'exit' to exit");
+        System.out.println("----------");
 }
 
 }
