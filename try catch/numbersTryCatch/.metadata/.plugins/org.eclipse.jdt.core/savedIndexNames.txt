@@ -1,0 +1,1 @@
+INDEX VERSION 1.130+/Users/TrinidadFamily/Documents/Leandro's Folder/GitHub/java_projects/try catch/numbersTryCatch/.metadata/.plugins/org.eclipse.jdt.core

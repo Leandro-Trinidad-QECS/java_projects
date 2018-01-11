@@ -1,14 +1,5 @@
-import java.util.Scanner; // scanner class for geting user inputing
+import java.util.Scanner; // scanner class for getting user inputing
 
-// used for creating lists and dictionary
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
-import java.util.Iterator;
-import java.util.Map.Entry;
-import java.util.Set;
-
-import java.text.DecimalFormat; // used for formatting the money
 
 public class numbersTryCatch {
 // main class
@@ -22,9 +13,8 @@ public static void main(String[] args) throws Exception {
         //places items in the dictionary that is in the Inforation class
         Information.market.put("Apples",10); // Information.market.put(name of item, item amount)
         Information.market.put("Oranges",20);
-        Information.market.put("bannanas",16);
 
-        //declaires variable for the users money
+        //Declares variable for the users money
         String money_amount;
 
         // gets how much money the user has
@@ -47,19 +37,30 @@ public static void main(String[] args) throws Exception {
         }
 
         //asks the user what item they want and the amount of items
-        int hello;
-        int amount;
+        int item;
+        int apple_amm = 0;
+        int orange_amm = 0;
         do {
                 Information.print_opt(Information.market);
-                hello = Information.getOptions("type 'done' when finished\nMarket");
-                if (hello != 666) {
-                        amount = Information.getOptions("Amount of items");
+                item = Information.getOptions("type 'done' when finished\nMarket");
+                if ((item != 666) && item == 0) { // 0 means apples
+                        apple_amm = Information.getOptions("Amount of apples: ");
                 }
-        } while(hello != 666); // 666 is the exit code
+                if ((item != 666) && item == 1) { // 1 means oranges
+                		orange_amm = Information.getOptions("Amount of oranges: ");
+                }
+        } while(item != 666); // 666 is the exit code
 
-
-        // packs the items in a box
-        //TODO: packs the item in a box
+        
+        double diameter = Information.appleDiameter;
+        Apple apples1 = new Apple ( apple_amm, diameter );
+        
+        System.out.println(apples1); //Console Apple Order
+        System.out.println("The total bill for Apples is: " + Information.printMoney(apples1.getTotalCost() ) );
+        diameter = Information.orangeDiameter;
+        Orange oranges1 = new Orange (orange_amm, diameter); //Creating object with Oranges ordered
+        System.out.println(oranges1); //Console Apple Order
+        System.out.println("The total bill for Oranges is: " + Information.printMoney(oranges1.getTotalCost() ) );
 
 
 

@@ -3,11 +3,8 @@ import java.util.Scanner; // Scanner gets user input
 
 //creates lists and dictionaries using maps
 import java.util.HashMap;
-import java.util.Hashtable;
+
 import java.util.Map;
-import java.util.Iterator;
-import java.util.Map.Entry;
-import java.util.Set;
 
 //creates decimal formatting
 import java.text.DecimalFormat;
@@ -18,6 +15,25 @@ public class Information {
 
 // creates a dictionary called market that will store the name of the item and the item amount
 public static Map<String, Integer> market = new HashMap<String, Integer>();
+
+//Instance variables from Receiving Department
+public static final double appleCost = 1.3465;
+public static final double appleDiameter = 7.2;
+public static final double orangeCost = 2.315468;
+public static final double orangeDiameter = 7.2;
+public static final double chocolateBoxCost = 6.1235874;
+public static final double chocolateBoxWidth = 5;
+public static final double chocolateBoxLength = 5;
+public static final double chocolateBoxHeight = 5;
+//All values statistically verified with Normal Distribution
+//Easy caliper or ruler measures
+
+//Instance Variables from Box Company
+//Variables about the box to pack Spheres in, conversion from inches
+public static final double box1Width = 1.5 * 12 * 2.54; //Traditional math definition (smallest in 2D)
+public static final double box1Length = 2.0 * 12 * 2.54; //Traditional math definition (longest in 2D)
+public static final double box1Height = 1 * 12 * 2.54; //Traditional math definition (3D Dimension)
+
 
 public static Scanner input = new Scanner(System.in);
 
@@ -94,7 +110,7 @@ public static String formatMoney(Object money, boolean print) {
 public static boolean isInt(Object num) throws Exception {
         //checks if object is an Integer if its a string or double sends false
         try {
-                int i = Integer.parseInt((String) num);
+                Integer.parseInt((String) num);
                 return true;
         }
         catch (Exception e) {
@@ -125,4 +141,9 @@ public static void print_opt(Map<String, Integer> mp) throws Exception {
         System.out.println("type 'exit' to exit");
         System.out.println("----------");
 }
+public static String printMoney (double money) {
+    String pM = String.format ("$%.2f", money);
+    System.out.println("Current Money output is " + pM);
+    return pM;
+  }
 }
