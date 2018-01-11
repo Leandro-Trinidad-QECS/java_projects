@@ -28,7 +28,7 @@ public static Boolean catchArgs(Object money) throws Exception {
                 Double.parseDouble(String.valueOf(money));
                 return true;
         } catch (Exception e) {
-                if(String.valueOf(money).equals("exit")) {
+                if(String.valueOf(money).equals("exit")) { // exits the program when the user types exit
                         System.out.println("bye");
                         System.exit(0);
                 }
@@ -36,7 +36,7 @@ public static Boolean catchArgs(Object money) throws Exception {
         }
 }
 
-public static int getOptions(String optionName) throws Exception {
+public static int getOptions(String optionName) throws Exception { // gets the user input
         //gets the user input of options
 
         int option_int = 0;
@@ -104,7 +104,15 @@ public static boolean isInt(Object num) throws Exception {
 }
 
 public static void print_opt(Map<String, Integer> mp) throws Exception {
-        int numbering;
+        //prints a dictionary in this formatting
+        //
+        // Market:
+        // [0] Item 1
+        // [1] Item 2
+        // [3] Item 3
+
+
+        int numbering; // used for numbering the items
         System.out.println("\nMarket:");
         System.out.print("------\n");
 

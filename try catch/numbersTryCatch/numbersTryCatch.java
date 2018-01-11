@@ -1,17 +1,17 @@
-import java.util.Scanner;
+import java.util.Scanner; // scanner class for geting user inputing
+
+// used for creating lists and dictionary
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
-
 import java.util.Iterator;
 import java.util.Map.Entry;
 import java.util.Set;
 
-
-import java.text.DecimalFormat;
+import java.text.DecimalFormat; // used for formatting the money
 
 public class numbersTryCatch {
-
+// main class
 
 
 //creates a scanner to get user input
@@ -19,21 +19,25 @@ public static Scanner input = new Scanner(System.in);
 
 public static void main(String[] args) throws Exception {
 
-        Information.market.put("Apples",10); // (name of item in the market)(How many items there are)
+        //places items in the dictionary that is in the Inforation class
+        Information.market.put("Apples",10); // Information.market.put(name of item, item amount)
         Information.market.put("Oranges",20);
         Information.market.put("bannanas",16);
-        //vars
+
+        //declaires variable for the users money
         String money_amount;
 
-        //try catch statement
-        int i = 0;
+        // gets how much money the user has
+        // checks to see if the user input is a double
+        // if not exits the program
+        int i = 0; // use to count the amount of tries
         while (true) {
                 System.out.print("type 'exit' to exit\nHow much money do you have ['50.65']: ");
                 money_amount = input.next();
                 if (Information.catchArgs(money_amount)) {
                         i = 0;
                         break;
-                } else if (i >= 2) {
+                } else if (i >= 2) { //if the user types incorrectly 3 times kicks out of the program
                         System.out.println("Maybe you can type later");
                         System.exit(0);
                 } else {
