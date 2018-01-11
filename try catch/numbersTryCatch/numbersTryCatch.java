@@ -12,22 +12,24 @@ import java.text.DecimalFormat;
 
 public class numbersTryCatch {
 
-private static Map<String, Double> market = new HashMap<String, Double>();
-// public static Map<String, Double> market = new HashMap<String, Double>();
+// creates a dictionary called market that will store the name of the item and the item amount
+private static Map<String, Integer> market = new HashMap<String, Integer>();
+
+//creates a scanner to get user input
 public static Scanner input = new Scanner(System.in);
 
 public static void main(String[] args) throws Exception {
 
-        market.put("Test",1.00); // (name of item in the market)(How much the item costs)
-        market.put("asd",1.00);
-        market.put("sgh",1.00);
+        market.put("Apples",10); // (name of item in the market)(How many items there are)
+        market.put("Oranges",20);
+        market.put("bannanas",16);
         //vars
         String money_amount;
 
         //try catch statement
         int i = 0;
         while (true) {
-                System.out.print("How much money do you have ['50.65']: ");
+                System.out.print("type 'exit' to exit\nHow much money do you have ['50.65']: ");
                 money_amount = input.next();
                 if (catchArgs(money_amount)) {
                         i = 0;
@@ -51,7 +53,7 @@ public static void main(String[] args) throws Exception {
 
 }
 
-public static int getOptions(String optionName) throws Exception {
+private static int getOptions(String optionName) throws Exception {
         //gets the user input of options
 
         int option_int = 0;
@@ -79,8 +81,8 @@ public static int getOptions(String optionName) throws Exception {
 
 }
 
-public static Boolean catchArgs(Object money) throws Exception {
-        // checks if the money is an interger or not
+private static Boolean catchArgs(Object money) throws Exception {
+        // checks if the money is an Integer or not
         try {
                 Double.parseDouble(String.valueOf(money));
                 return true;
@@ -94,7 +96,7 @@ public static Boolean catchArgs(Object money) throws Exception {
 }
 
 
-public static String formatMoney(Object money, boolean print) {
+private static String formatMoney(Object money, boolean print) {
         //formats the money to two decimal places
         // cna print
 
@@ -116,8 +118,8 @@ public static String formatMoney(Object money, boolean print) {
         return return_string;
 }
 
-public static boolean isInt(Object num) throws Exception {
-        //checks if object is an interger if its a string or double sends false
+private static boolean isInt(Object num) throws Exception {
+        //checks if object is an Integer if its a string or double sends false
         try {
                 int i = Integer.parseInt((String) num);
                 return true;
@@ -128,7 +130,7 @@ public static boolean isInt(Object num) throws Exception {
 
 }
 
-public static void print_opt(Map<String, Double> mp) throws Exception {
+private static void print_opt(Map<String, Integer> mp) throws Exception {
         int numbering;
         System.out.println("\nMarket:");
         System.out.print("------\n");
