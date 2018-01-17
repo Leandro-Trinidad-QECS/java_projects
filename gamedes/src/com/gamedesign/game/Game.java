@@ -51,10 +51,14 @@ public class Game extends Canvas implements Runnable{
 	
 	
 	public Game() {
+		
+		//creates the frame
+		//sets the size
 		setMinimumSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
 		setMaximumSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
 		setPreferredSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
 		
+		//creates jframe
 		frame = new JFrame(NAME);
 				
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -70,20 +74,24 @@ public class Game extends Canvas implements Runnable{
 		
 	}
 	
-	
+	//starts the proram
 	private synchronized void start() {
 		running = true;
 		new Thread(this).start();
 		
 	}
+	
+	//stops the program
 	private synchronized void stop() {
 		running = false;
 		
 	}
 	
 	
-	
+	//runs the programs
 	public void run() {
+		
+		//makes the fps max 60
 		long lastTime = System.nanoTime();
 		double nsPerTick = 1000000000D/60D;
 		
@@ -107,7 +115,6 @@ public class Game extends Canvas implements Runnable{
 			try {
 				Thread.sleep(2);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			if(shouldRender) {
@@ -128,6 +135,7 @@ public class Game extends Canvas implements Runnable{
 		}
 	}
 	
+	//tick counter
 	public void tick() {
 		tickCount++;
 		
@@ -135,6 +143,8 @@ public class Game extends Canvas implements Runnable{
 			pixels[i] = i + tickCount;
 		}
 	}
+	
+	//renders the graphics
 	public void render() {
 		BufferStrategy bs = getBufferStrategy();
 		if(bs == null) {
@@ -152,6 +162,7 @@ public class Game extends Canvas implements Runnable{
 		bs.show();
 	}
 	
+	// when the project is opened starts the game
 	public static void main(String[] args) {
 		new Game().start();
 	}
