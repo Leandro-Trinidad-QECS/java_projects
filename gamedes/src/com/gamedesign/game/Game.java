@@ -11,23 +11,45 @@ import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
 
+import com.gamedesign.game.gfx.SpriteSheet;
+
 public class Game extends Canvas implements Runnable{
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	
+	//variables
+	private static final long serialVersionUID = 1L; //given by eclipse
+	
+	//the size of the window and scale
 	public static final int WIDTH = 160;
 	public static int HEIGHT = WIDTH / 12 * 9;
 	public static final int SCALE = 3;
+	
+	
+	//the name of the window
 	public static final String NAME = "GAME";
 	
+	
+	
+	//creates a new JFrame used to make the game window
 	private JFrame frame;
+	
+	//more vars
 	public boolean running = false;
 	public int tickCount = 0;
 	
+	
 	private BufferedImage image = new BufferedImage(WIDTH,HEIGHT,BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) image.getRaster().getDataBuffer()).getData();
+	
+	private SpriteSheet spriteSheet = new SpriteSheet("/sprite_sheet.png");
+	
+	
+	
+	
+	
 	public Game() {
 		setMinimumSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
 		setMaximumSize(new Dimension(WIDTH*SCALE,HEIGHT*SCALE));
