@@ -36,7 +36,7 @@ public class Game extends Canvas implements Runnable{
 	//creates a new JFrame used to make the game window
 	private JFrame frame;
 	
-	//more vars
+	//more variables
 	public boolean running = false;
 	public int tickCount = 0;
 	

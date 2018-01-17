@@ -24,6 +24,8 @@ public class SpriteSheet {
 			e.printStackTrace();
 		}
 		
+		
+		// when the image remains null
 		if(image == null) {
 			return;
 		}
