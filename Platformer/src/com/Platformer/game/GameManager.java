@@ -3,17 +3,19 @@ package com.Platformer.game;
 import com.Platformer.engine.AbstractGame;
 import com.Platformer.engine.GameContainer;
 import com.Platformer.engine.Renderer;
+import com.Platformer.engine.gfx.Image;
 import com.sun.glass.events.KeyEvent;
 
 public class GameManager extends AbstractGame{
 
+	private Image image;
 	public GameManager() {
-		
+		image = new Image("/test.png");
 	}
 	@Override
 	public void update(GameContainer gc, float dt) {
 		// TODO Auto-generated method stub
-		if(gc.getInput().isKeyDown(KeyEvent.VK_A)) {
+		if(gc.getInput().isKeyDown(KeyEvent.VK_W)) {
 			System.out.println("HELLO");
 		}
 	}
@@ -21,6 +23,7 @@ public class GameManager extends AbstractGame{
 	@Override
 	public void render(GameContainer gc, Renderer r) {
 		// TODO Auto-generated method stub
+		r.drawImage(image, gc.getInput().getMouseX(), gc.getInput().getMouseY());
 		
 	}
 	public static void main(String args[]) {
