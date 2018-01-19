@@ -15,6 +15,7 @@ public class GameManager extends AbstractGame{
 	@Override
 	public void update(GameContainer gc, float dt) {
 		// TODO Auto-generated method stub
+		
 		if(gc.getInput().isKeyDown(KeyEvent.VK_W)) {
 			System.out.println("HELLO");
 		}
@@ -22,6 +23,7 @@ public class GameManager extends AbstractGame{
 
 	@Override
 	public void render(GameContainer gc, Renderer r) {
+		r.clear();
 		// TODO Auto-generated method stub
 		r.drawImage(image, gc.getInput().getMouseX(), gc.getInput().getMouseY());
 		
