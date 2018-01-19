@@ -25,8 +25,7 @@ public class GameManager extends AbstractGame{
 	public void render(GameContainer gc, Renderer r) {
 		r.clear();
 		// TODO Auto-generated method stub
-		r.drawImage(image, gc.getInput().getMouseX(), gc.getInput().getMouseY());
-		
+		r.drawImage(image, gc.getInput().getMouseX()-32, gc.getInput().getMouseY()-32);
 	}
 	public static void main(String args[]) {
 		GameContainer gc = new GameContainer(new GameManager());
